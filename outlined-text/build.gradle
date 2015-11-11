@@ -1,0 +1,70 @@
+apply plugin: 'com.android.library'
+apply plugin: 'maven'
+apply plugin: 'signing'
+
+group            = 'me.mattak'
+version          = '0.0.1'
+archivesBaseName = 'outlined-text'
+
+ext {
+    archiveName = 'outlined-text'
+    userId      = 'mattak'
+    userName    = 'Takuma Maruyama'
+    userEmail   = 'mattak.me@gmail.com'
+    gitUrl      = 'https://github.com/mattak/OutlinedText.git'
+    siteUrl     = 'https://github.com/mattak/OutlinedText'
+    issueUrl    = 'https://github.com/mattak/OutlinedText/issues'
+    projectName = 'Outlined Text'
+    projectDescription = 'Outlined Text for android'
+    scmUrl      = 'scm:git@github.com:mattak/OutlinedText.git'
+    licenseName = 'The Apache License, Version 2.0'
+    licenseUrl  = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    isReleaseVersion = !version.endsWith('SNAPSHOT')
+}
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.1"
+
+    defaultConfig {
+        minSdkVersion 8
+        targetSdkVersion 23
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    jacoco {
+        version = '0.7.5.201505241946'
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+
+    packagingOptions {
+        exclude 'LICENSE'
+    }
+}
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}
+
+if (gradle.startParameter.taskNames.contains('uploadArchives')) {
+    apply from: 'publish_maven.gradle'
+}
