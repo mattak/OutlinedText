@@ -6,7 +6,6 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Typeface;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.view.Gravity;
@@ -49,10 +48,10 @@ public class OutlinedTextView extends TextView {
         strokePaint.setColor(this.mStrokeColor);
         strokePaint.setTextAlign(Paint.Align.CENTER);
         strokePaint.setTextSize(this.getTextSize());
-        strokePaint.setTypeface(Typeface.DEFAULT);
-        strokePaint.setStyle(Paint.Style.FILL_AND_STROKE);
+        strokePaint.setStyle(Paint.Style.STROKE);
         strokePaint.setStrokeWidth(this.mStrokeWidth);
         strokePaint.setAntiAlias(true);
+        strokePaint.setTypeface(this.getPaint().getTypeface());
     }
 
     public void setStrokeWidth(float strokeWidth) {
@@ -67,6 +66,9 @@ public class OutlinedTextView extends TextView {
 
     @Override
     public void draw(Canvas canvas) {
+        // It requires to apply custom font
+        strokePaint.setTypeface(this.getPaint().getTypeface());
+
         Paint.FontMetrics metrics = strokePaint.getFontMetrics();
         int px = getTextCenterX(strokePaint);
         int py = getTextCenterY(metrics);
@@ -76,7 +78,7 @@ public class OutlinedTextView extends TextView {
     }
 
     private int getTextCenterX(Paint paint) {
-        float textWidth = paint.measureText(this.getText().toString());
+        final float textWidth = paint.measureText(this.getText().toString());
         if ((this.getGravity() & Gravity.LEFT) == Gravity.LEFT) {
             return (int) (textWidth / 2);
         } else if ((this.getGravity() & Gravity.RIGHT) == Gravity.RIGHT) {
