@@ -31,7 +31,7 @@
     <me.mattak.outlined_text.OutlinedTextView
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:text="左上"
+        android:text="LeftTop"
         android:textColor="@android:color/white"
         android:textSize="40sp"
         app:strokeColor="@android:color/black"
@@ -43,10 +43,11 @@
         android:background="@android:color/holo_red_dark" />
 
     <me.mattak.outlined_text.OutlinedTextView
+        fontPath="Raleway-Medium.ttf"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:gravity="center"
-        android:text="中央"
+        android:text="Center"
         android:textColor="@android:color/white"
         android:textSize="40sp"
         app:strokeColor="@android:color/black"
@@ -61,7 +62,7 @@
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:gravity="bottom|right"
-        android:text="右下"
+        android:text="BottomRight"
         android:textColor="@android:color/white"
         android:textSize="40sp"
         app:strokeColor="@android:color/black"
@@ -71,5 +72,4 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@android:color/holo_red_dark" />
-
 </LinearLayout>
