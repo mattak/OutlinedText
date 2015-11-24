@@ -1,4 +1,6 @@
-# OutlinedText [![Maven Central](https://maven-badges.herokuapp.com/maven-central/me.mattak/outlined-text/badge.svg)](https://maven-badges.herokuapp.com/maven-central/me.mattak/outlined-text)
+# OutlinedText [![Maven Central](https://maven-badges.herokuapp.com/maven-central/me.mattak/outlined-text/badge.svg)](https://maven-badges.herokuapp.com/maven-central/me.mattak/outlined-text) [![Build Status](https://travis-ci.org/mattak/OutlinedText.svg)](https://travis-ci.org/mattak/OutlinedText)
+
+## Install
 
 Android simple outlined TextView library.
 
