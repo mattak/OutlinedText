@@ -1,23 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/darker_gray"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:showIn="@layout/activity_main"
-    tools:context="me.mattak.example.outlinedtext.MainActivity">
+    tools:context="me.mattak.example.outlinedtext.MainActivity"
+    tools:showIn="@layout/activity_main">
 
     <me.mattak.outlined_text.OutlinedTextView
-        app:strokeWidth="2dp"
-        app:strokeColor="#f10"
-        android:text="Hello World!"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        android:textColor="@android:color/white"
+        android:textSize="40sp"
+        app:strokeColor="@android:color/black"
+        app:strokeWidth="10sp" />
 
-</RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/holo_red_dark" />
+
+    <me.mattak.outlined_text.OutlinedTextView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:text="左上"
+        android:textColor="@android:color/white"
+        android:textSize="40sp"
+        app:strokeColor="@android:color/black"
+        app:strokeWidth="10sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/holo_red_dark" />
+
+    <me.mattak.outlined_text.OutlinedTextView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center"
+        android:text="中央"
+        android:textColor="@android:color/white"
+        android:textSize="40sp"
+        app:strokeColor="@android:color/black"
+        app:strokeWidth="10sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/holo_red_dark" />
+
+    <me.mattak.outlined_text.OutlinedTextView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="bottom|right"
+        android:text="右下"
+        android:textColor="@android:color/white"
+        android:textSize="40sp"
+        app:strokeColor="@android:color/black"
+        app:strokeWidth="10sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/holo_red_dark" />
+
+</LinearLayout>
